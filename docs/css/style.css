@@ -1,0 +1,25 @@
+.main {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: -999;
+}
+.gif {
+    position: absolute;
+}
+
+.gif1 {
+    top: 29.37%;
+    left: 66%;
+    width: 30%;
+}
+.gif2 {
+    top: 38.52%;
+    left: 7.5%;
+    width: 27.3%;
+}
+.gif3 {
+    top: 81.9%;
+    left: -0.7%;
+    width: 29%;
+}
