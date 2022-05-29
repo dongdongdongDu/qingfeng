@@ -1,13 +1,10 @@
 //妯辫姳
 var stop, staticx;
 var img = new Image();
-// console.log("sakura")
-// console.log()
-img.src = "./src/粽子2.png";
 
-// console.log(img.src)
-// img.src = "http://img14.360buyimg.com/cms/jfs/t595/323/625407732/3275/e86993e8/5476ba25Ne75aa640.png";
-// img.src = "http://127.0.0.1:8000/static/js/7.png";
+
+img.src = "./src/粽子3.png";
+
 
 function Sakura(x, y, s, r, fn) {
     this.x = x;
@@ -21,6 +18,7 @@ Sakura.prototype.draw = function (cxt) {
     cxt.save();
     var xc = 40 * this.s / 4;
     cxt.translate(this.x, this.y);
+    // cxt.translate(0.5*this.x, 0.5*this.y);
     cxt.rotate(this.r);
     cxt.drawImage(img, 0, 0, 40 * this.s, 40 * this.s)
     cxt.restore();
@@ -87,12 +85,12 @@ function getRandom(option) {
         case 'fnx':
             random = -0.5 + Math.random() * 1;
             ret = function (x, y) {
-                return x + 0.5 * random - 1.7;
+                return x + 0.5 * random - 0.7;
             }
             ;
             break;
         case 'fny':
-            random = 1.5 + Math.random() * 0.7
+            random = 0.5 + Math.random() * 0.7
             ret = function (x, y) {
                 return y + random;
             }
@@ -116,12 +114,13 @@ function startSakura() {
     staticx = true;
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-    canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;z-index:999;');
+    canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;z-index:0;');
     canvas.setAttribute('id', 'canvas_sakura');
-    document.getElementsByTagName('body')[0].appendChild(canvas);
+    // document.getElementsByTagName('body')[0].appendChild(canvas);
+    document.getElementsByClassName('container')[0].appendChild(canvas);
     cxt = canvas.getContext('2d');
     var sakuraList = new SakuraList();
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 5; i++) {
         var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
         randomX = getRandom('x');
         randomY = getRandom('y');
@@ -152,7 +151,7 @@ window.onresize = function () {
     canvasSnow.height = window.innerHeight;
 }
 
-img.onload = function () {
+window.onload = function () {
     startSakura();
 }
 
@@ -166,3 +165,7 @@ function stopp() {
         startSakura();
     }
 }
+
+// setTimeout(function () {//设置定时器function可使用变量代替
+//     stopp();
+// }, 5000);//定时时间5000毫秒
