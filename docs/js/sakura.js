@@ -3,7 +3,7 @@ var stop, staticx;
 var img = new Image();
 
 
-img.src = "./src/粽子3.png";
+img.src = "./src/zongzi.png";
 
 
 function Sakura(x, y, s, r, fn) {
@@ -20,7 +20,7 @@ Sakura.prototype.draw = function (cxt) {
     cxt.translate(this.x, this.y);
     // cxt.translate(0.5*this.x, 0.5*this.y);
     cxt.rotate(this.r);
-    cxt.drawImage(img, 0, 0, 40 * this.s, 40 * this.s)
+    cxt.drawImage(img, 0, 0, 50 * this.s, 50 * this.s)
     cxt.restore();
 }
 
@@ -120,7 +120,7 @@ function startSakura() {
     document.getElementsByClassName('container')[0].appendChild(canvas);
     cxt = canvas.getContext('2d');
     var sakuraList = new SakuraList();
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 10; i++) {
         var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
         randomX = getRandom('x');
         randomY = getRandom('y');
